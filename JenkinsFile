@@ -5,10 +5,10 @@ pipeline {
         stage('Development') {
             steps {
                 echo 'Hello World'
-                bat ''' if exist iris_flower_classification{
-echso "file exits"}
-else{
-git clone git clone 'https://github.com/shreya-gp/iris_flower_classification.git'}'''
+                bat ''' if exists iris_flower_classification{
+                          echo "file exists"}
+                        else{
+                     git clone git clone 'https://github.com/shreya-gp/iris_flower_classification.git'}'''
             }
         }
         stage("QA"){
