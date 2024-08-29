@@ -13,7 +13,7 @@ pipeline {
                 bat'''
                     cd ..
                     cd secondjob
-                    git clone 'https://github.com/shreya-gp/iris_flower_classification.git''''
+                    git clone https://github.com/shreya-gp/iris_flower_classification.git'''
             }
         }
         stage("QA"){
