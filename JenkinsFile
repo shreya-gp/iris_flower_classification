@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Development') {
             steps {
                 echo 'Hello World'
             }
         }
-        stage("Development"){
+        stage("QA"){
             steps {
                 echo "Hello World - QA"
                 bat'''
@@ -16,7 +16,7 @@ pipeline {
                     git clone https://github.com/shreya-gp/iris_flower_classification.git'''
             }
         }
-        stage("QA"){
+        stage("Operations"){
             steps {
                 echo "Hello World - QA"
                 bat'''
