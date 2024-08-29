@@ -2,23 +2,37 @@ pipeline {
     agent any
 
     stages {
-        stage('Development') {
+        stage('Hello') {
             steps {
                 echo 'Hello World'
-                bat ''' if exists iris_flower_classification{
-                          echo "file exists"}
-                        else{
-                     git clone git clone 'https://github.com/shreya-gp/iris_flower_classification.git'}'''
+            }
+        }
+        stage("Development"){
+            steps {
+                echo "Hello World - QA"
+                bat'''
+                    cd ..
+                    cd secondjob
+                    git clone 'https://github.com/shreya-gp/iris_flower_classification.git''''
             }
         }
         stage("QA"){
-            steps{
-                echo "Hello QA"
-            }
-        }
-        stage("Operations"){
-            steps{
-                echo "Hello Operations"
+            steps {
+                echo "Hello World - QA"
+                bat'''
+                    echo third job
+                    cd ..
+                    cd SecondJob
+                    cd iris_flower_classification
+                    mkdir Test
+                    cd Test
+                    echo Shreya > text.txt
+                    cd ..
+                    git add .
+                    git config --global user.email "shreyagp44@gmail.com"
+                    git config --global user.name "shreya-gp"
+                    git commit -m "Pushing newdir from jenkins"
+                    git push https://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@/github.com/shreya-gp/iris_flower_classification.git'''
             }
         }
     }
